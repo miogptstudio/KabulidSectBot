@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: rank-duel-bot
+    runtime: python
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    startCommand: python run.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./bot.db
